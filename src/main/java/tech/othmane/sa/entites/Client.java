@@ -3,13 +3,16 @@ package tech.othmane.sa.entites;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Client")
+@Table(name = "client")
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String email;
+
+    public Client() {
+    }
 
     public Client(int id, String email) {
         this.id = id;

@@ -24,5 +24,22 @@ public class ClientController {
         this.clientService.create(client);
     }
 
+    @GetMapping(path = "{id}", produces = APPLICATION_JSON_VALUE)
+    public Client lire(@PathVariable int id){
+        return this.clientService.lire(id);
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @DeleteMapping(path = "{id}", produces = APPLICATION_JSON_VALUE)
+    public void delete(@PathVariable int id){
+        this.clientService.delete(id);
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @PutMapping(path = "{id}", consumes = APPLICATION_JSON_VALUE)
+    public void modify(@PathVariable int id, @RequestBody Client client){
+        this.clientService.modify(id, client.getEmail());
+    }
+
 }
 
